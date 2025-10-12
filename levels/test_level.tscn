@@ -1,8 +1,22 @@
-[gd_scene load_steps=4 format=4 uid="uid://bvxufrpd5a06e"]
+[gd_scene load_steps=8 format=4 uid="uid://bvxufrpd5a06e"]
 
 [ext_resource type="TileSet" uid="uid://d3ji663s6p3e4" path="res://tilesets/generic_tileset.tres" id="1_46lwt"]
-[ext_resource type="PackedScene" path="res://test_character.tscn" id="2_x25rp"]
-[ext_resource type="Script" path="res://scripts/CharacterControllerInput.gd" id="3_gmgay"]
+[ext_resource type="PackedScene" uid="uid://c0i6cvqo6mrxs" path="res://test_character.tscn" id="2_x25rp"]
+[ext_resource type="Script" uid="uid://c0qsytfvpy4v5" path="res://scripts/CharacterControllerInput.gd" id="3_gmgay"]
+[ext_resource type="PackedScene" uid="uid://bkroi5n6tdn3x" path="res://back_and_forth.tscn" id="4_o6mel"]
+[ext_resource type="Script" uid="uid://bpuewlvdnxgni" path="res://scripts/npc/back_and_forth.gd" id="5_e7anx"]
+
+[sub_resource type="Curve2D" id="Curve2D_o6mel"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 166, 164, 0, 0, 0, 0, 975, 166, 0, 0, 0, 0, 984, 552)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_e7anx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 610, 157, 0, 0, 0, 0, 603, 547, 0, 0, 0, 0, 157, 544)
+}
+point_count = 3
 
 [node name="TestLevel" type="Node2D"]
 
@@ -15,3 +29,19 @@ position = Vector2(427, 277)
 
 [node name="InputController" type="Node2D" parent="TestCharacter"]
 script = ExtResource("3_gmgay")
+
+[node name="BackAndForth" parent="." instance=ExtResource("4_o6mel")]
+
+[node name="Node2D" type="Node2D" parent="BackAndForth"]
+script = ExtResource("5_e7anx")
+
+[node name="Path2D" type="Path2D" parent="BackAndForth"]
+curve = SubResource("Curve2D_o6mel")
+
+[node name="BackAndForth2" parent="." instance=ExtResource("4_o6mel")]
+
+[node name="Node2D" type="Node2D" parent="BackAndForth2"]
+script = ExtResource("5_e7anx")
+
+[node name="Path2D" type="Path2D" parent="BackAndForth2"]
+curve = SubResource("Curve2D_e7anx")

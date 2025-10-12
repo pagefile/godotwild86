@@ -17,4 +17,5 @@ func _process(delta):
 	var input_dir = Input.get_vector("Move Left", "Move Right", "Move Up", "Move Down")
 	if input_dir.length_squared() > 1:
 		input_dir = input_dir.normalized()
+	_character.facing = input_dir
 	_character.move(input_dir)

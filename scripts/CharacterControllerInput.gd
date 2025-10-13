@@ -13,7 +13,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var input_dir = Input.get_vector("Move Left", "Move Right", "Move Up", "Move Down")
 	if input_dir.length_squared() > 1:
 		input_dir = input_dir.normalized()

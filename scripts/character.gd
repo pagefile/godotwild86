@@ -12,7 +12,7 @@ var anim = {
 	Vector2(0,1): "walk_f",
 	Vector2(0,-1): "walk_b"
 }
-func _physics_process(delta):
+func _physics_process(_delta):
 	if anim.has(_movement):
 		$Sprite.play(anim[_movement.round()])
 	velocity = _movement * _speed
@@ -22,5 +22,5 @@ func _physics_process(delta):
 # The vector should have a length between 0 and 1. Anything greater
 # will make the player move faster than they should, there are no
 # checks in here
-func move(move : Vector2):
-	_movement = move
+func move(movement : Vector2):
+	_movement = movement

@@ -41,7 +41,7 @@ func _input(event: InputEvent):
 		_pages[_current_page].visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	%FPS.text = "FPS: " + str(Engine.get_frames_per_second())
 
 func Log(message : String):

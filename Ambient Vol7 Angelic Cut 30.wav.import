@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dn5ga7l6gh5oh"
+path="res://.godot/imported/Ambient Vol7 Angelic Cut 30.wav-f6760c36c1b822540ed8a9599754b31a.sample"
+
+[deps]
+
+source_file="res://Ambient Vol7 Angelic Cut 30.wav"
+dest_files=["res://.godot/imported/Ambient Vol7 Angelic Cut 30.wav-f6760c36c1b822540ed8a9599754b31a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

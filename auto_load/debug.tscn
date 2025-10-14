@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://b248ubet1w0"]
+
+[ext_resource type="Script" uid="uid://niuru6onwunw" path="res://scripts/debug.gd" id="1_fbrj7"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_fbrj7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.45882353)
+
+[node name="Pages" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FPSCounter" type="VBoxContainer" parent="Pages"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FPS" type="Label" parent="Pages/FPSCounter"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "FPS:"

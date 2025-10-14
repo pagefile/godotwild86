@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=4 uid="uid://bvxufrpd5a06e"]
+[gd_scene load_steps=5 format=4 uid="uid://bvxufrpd5a06e"]
 
 [ext_resource type="TileSet" uid="uid://d3ji663s6p3e4" path="res://tilesets/generic_tileset.tres" id="1_46lwt"]
+[ext_resource type="PackedScene" uid="uid://bbyviry88e5al" path="res://GUI/pause_menu.tscn" id="1_w7r7j"]
 [ext_resource type="PackedScene" uid="uid://c0i6cvqo6mrxs" path="res://test_character.tscn" id="2_x25rp"]
 [ext_resource type="Script" uid="uid://c0qsytfvpy4v5" path="res://scripts/CharacterControllerInput.gd" id="3_gmgay"]
 
@@ -15,3 +16,5 @@ position = Vector2(427, 277)
 
 [node name="InputController" type="Node2D" parent="TestCharacter"]
 script = ExtResource("3_gmgay")
+
+[node name="PauseScreen" parent="." instance=ExtResource("1_w7r7j")]

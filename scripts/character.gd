@@ -3,6 +3,7 @@ class_name Character
 
 @export var _speed = 300.0
 
+var mask: Mask
 var _movement : Vector2
 var facing = Vector2(0,0)
 var anim = {

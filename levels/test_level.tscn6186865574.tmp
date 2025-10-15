@@ -38,7 +38,7 @@ position = Vector2(608, 288)
 [node name="Path2D" type="Path2D" parent="NPC"]
 curve = SubResource("Curve2D_o6mel")
 
-[node name="BackAndForth" type="Node2D" parent="NPC"]
+[node name="BackAndForth" type="Node" parent="NPC"]
 script = ExtResource("6_e7anx")
 
 [connection signal="body_entered" from="TestCharacter/Interaction" to="TestCharacter/InputController" method="_on_interaction_body_entered"]

@@ -24,7 +24,12 @@ func _on_close_button_pressed():
 	_close_pressed.emit() # Do we need this?
 
 func close():
-	# TODO: Save options data
+	var sound_prefs = {
+		MASTER : AudioServer.get_bus_volume_linear(AudioServer.get_bus_index(MASTER)),
+		MUSIC : AudioServer.get_bus_volume_linear(AudioServer.get_bus_index(MUSIC)),
+		SFX : AudioServer.get_bus_volume_linear(AudioServer.get_bus_index(SFX))
+	}
+	GameManager.update_prefs(sound_prefs)
 	hide()
 
 func _on_music_value_changed(value):

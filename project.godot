@@ -11,12 +11,18 @@ config_version=5
 [application]
 
 config/name="gdwild86"
+run/main_scene="uid://cuxlqfwmvyh2p"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://cyxls5dypqbhl"
+
 [autoload]
 
-Debug="*res://GUI/debug.tscn"
+Debug="*res://auto_load/debug.tscn"
+GameManager="*res://auto_load/game_manager.tscn"
 
 [global_group]
 

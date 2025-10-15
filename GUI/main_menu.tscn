@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuxlqfwmvyh2p"]
+
+[ext_resource type="Script" uid="uid://b3uabhtwxsh1d" path="res://scripts/GUI/main_menu.gd" id="1_kf0uv"]
+[ext_resource type="PackedScene" uid="uid://bvxufrpd5a06e" path="res://levels/test_level.tscn" id="2_38be4"]
+
+[node name="Main Menu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_kf0uv")
+_first_level = ExtResource("2_38be4")
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 175.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 128
+text = "Masque"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_top = 0.437
+anchor_right = 1.0
+anchor_bottom = 0.437
+offset_left = 538.0
+offset_top = -6.175995
+offset_right = -432.0
+offset_bottom = 46.824005
+theme_override_font_sizes/font_size = 32
+text = "Start Game"
+
+[node name="QuitButton" type="Button" parent="."]
+visible = false
+anchors_preset = -1
+anchor_top = 0.437
+anchor_right = 1.0
+anchor_bottom = 0.437
+offset_left = 538.0
+offset_top = 74.824005
+offset_right = -432.0
+offset_bottom = 127.824005
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Exit Game"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

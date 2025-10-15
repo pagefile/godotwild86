@@ -1,0 +1,112 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch8ru15x6pp0t"]
+
+[ext_resource type="Script" uid="uid://80rgwqc5iowo" path="res://scripts/GUI/audio_menu.gd" id="1_jan0q"]
+[ext_resource type="Theme" uid="uid://byfa1qm1ggi4a" path="res://GUI/Themes/menu_title_theme.tres" id="2_536be"]
+
+[node name="SoundPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jan0q")
+
+[node name="MasterVolumeContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 271.0
+offset_top = 169.0
+offset_right = -235.0
+offset_bottom = -315.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MasterVolumeContainer"]
+layout_mode = 2
+
+[node name="OptionsTitle" type="Label" parent="MasterVolumeContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_536be")
+text = "Audio"
+horizontal_alignment = 1
+
+[node name="MVMarginContainer" type="MarginContainer" parent="MasterVolumeContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="MasterVolumeContainer" type="HBoxContainer" parent="MasterVolumeContainer/VBoxContainer/MVMarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="MasterLabel" type="Label" parent="MasterVolumeContainer/VBoxContainer/MVMarginContainer/MasterVolumeContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Master Volume"
+
+[node name="Master" type="HSlider" parent="MasterVolumeContainer/VBoxContainer/MVMarginContainer/MasterVolumeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+ticks_position = 3
+
+[node name="SVMarginContainer2" type="MarginContainer" parent="MasterVolumeContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="SoundVolumeContainer" type="HBoxContainer" parent="MasterVolumeContainer/VBoxContainer/SVMarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="sfxLabel" type="Label" parent="MasterVolumeContainer/VBoxContainer/SVMarginContainer2/SoundVolumeContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Sound Volume"
+
+[node name="sfx" type="HSlider" parent="MasterVolumeContainer/VBoxContainer/SVMarginContainer2/SoundVolumeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+ticks_position = 3
+
+[node name="MVMarginContainer3" type="MarginContainer" parent="MasterVolumeContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="MusicVolumeContainer" type="HBoxContainer" parent="MasterVolumeContainer/VBoxContainer/MVMarginContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="musicLabel" type="Label" parent="MasterVolumeContainer/VBoxContainer/MVMarginContainer3/MusicVolumeContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Music  Volume"
+
+[node name="music" type="HSlider" parent="MasterVolumeContainer/VBoxContainer/MVMarginContainer3/MusicVolumeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+ticks_position = 3
+
+[node name="CloseButton" type="Button" parent="MasterVolumeContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Close"
+
+[connection signal="value_changed" from="MasterVolumeContainer/VBoxContainer/MVMarginContainer/MasterVolumeContainer/Master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="MasterVolumeContainer/VBoxContainer/SVMarginContainer2/SoundVolumeContainer/sfx" to="." method="_on_sfx_value_changed"]
+[connection signal="value_changed" from="MasterVolumeContainer/VBoxContainer/MVMarginContainer3/MusicVolumeContainer/music" to="." method="_on_music_value_changed"]
+[connection signal="pressed" from="MasterVolumeContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

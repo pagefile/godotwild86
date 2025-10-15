@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1axpsl7yml05"]
+
+[ext_resource type="Script" uid="uid://d0iescc773tx5" path="res://scripts/GUI/controls_menu.gd" id="1_dxhbj"]
+[ext_resource type="Theme" uid="uid://byfa1qm1ggi4a" path="res://GUI/Themes/menu_title_theme.tres" id="1_ih4en"]
+
+[node name="ControlsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dxhbj")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 339.0
+offset_top = 195.0
+offset_right = -331.0
+offset_bottom = -206.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="ControlsTitle" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ih4en")
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Close"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

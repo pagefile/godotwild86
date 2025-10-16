@@ -14,7 +14,7 @@ var anim = {
 	Vector2(0,-1): "walk_b"
 }
 func _physics_process(_delta):
-	if anim.has(_movement):
+	if anim.has(_movement.round()):
 		$Sprite.play(anim[_movement.round()])
 	velocity = _movement * _speed
 	move_and_slide()

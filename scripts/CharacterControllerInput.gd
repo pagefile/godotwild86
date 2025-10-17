@@ -12,7 +12,7 @@ func _enter_tree():
 func _ready():
 	pass # Replace with function body.
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Interact"):
 		interact()
 	#if event is InputEventKey and event.is_action("ui_cancel"):

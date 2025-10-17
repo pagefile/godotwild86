@@ -60,7 +60,7 @@ func _movement() -> void:
 	
 	character.move(direction)
 
-func _pathing(delta: float) -> void:
+func _pathing(_delta: float) -> void:
 	pass #Override this for the pathing/ai.
 
 func _start() -> void:

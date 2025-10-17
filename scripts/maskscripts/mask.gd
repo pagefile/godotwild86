@@ -1,10 +1,21 @@
 extends Node2D
 class_name Mask
 
+@export var patrol_path : Path2D
+# Increment value for creating the guide path. A value of 1
+# means a guide is placed at every baked point
+@export var guidepath_step_count = 1
+# How many points behind the lead light up
+@export var illumination_trail = 2
+@export var guide_light_packed_scene : PackedScene
+
+# Tracking lights to illuminate them based on
+# Where the player needs to be
+var _guide_lights : Array[GuideLight]
+
 #Variables from character
 var navigation_agent: NavigationAgent2D
-var path: Path2D
-var path_follow: PathFollow2D
+var path_follow: PathFollow2D = PathFollow2D.new()
 
 @onready var character: Character = get_parent()
 var finished_going_to_target: bool = false
@@ -17,19 +28,22 @@ func get_distance_from_path() -> float:
 	return distance
 
 func _ready() -> void:
+	patrol_path.add_child(path_follow)
 	call_deferred("_set_variables")
 	call_deferred("_start")
 
 func _set_variables() -> void:
-	navigation_agent = character.navigation_agent
-	path = character.path
-	path_follow = character.path_follow
+	navigation_agent = $NavigationAgent2D
 	character.mask =  self
 
 func _process(delta: float) -> void:
 	
 	if finished_going_to_target:
 		return
+	
+	# Find the closest guide light and illuminate it
+	for light in _guide_lights:
+		pass
 	
 	_pathing(delta)
 	if character is NPC:
@@ -64,4 +78,14 @@ func _pathing(_delta: float) -> void:
 	pass #Override this for the pathing/ai.
 
 func _start() -> void:
-	pass #Override this for starting.
+	# Get the baked points of the path and create guide lights on them
+	var points = patrol_path.curve.get_baked_points()
+	var index = 0
+	if guidepath_step_count < 1:
+		guidepath_step_count = 1
+	while index < points.size():
+		var light = guide_light_packed_scene.instantiate()
+		get_tree().current_scene.add_child(light)
+		light.global_position = patrol_path.global_transform * points[index]
+		index += guidepath_step_count
+		_guide_lights.push_back(light)

@@ -152,5 +152,3 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_s7tkf")
 animation = &"walk_s"
 frame_progress = 0.3303905
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

@@ -14,7 +14,8 @@ func _input(event):
 			get_viewport().set_input_as_handled()
 
 func _on_visibility_changed():
-	get_tree().paused = visible
+	if(get_tree() != null):
+		get_tree().paused = visible
 
 
 func _on_resume_button_pressed():

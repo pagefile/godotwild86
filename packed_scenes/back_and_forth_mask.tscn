@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbvfec4lp7fqt"]
+
+[ext_resource type="Script" uid="uid://btb3g25dyq3di" path="res://scripts/maskscripts/back_and_forth.gd" id="1_ns4lj"]
+[ext_resource type="PackedScene" uid="uid://bxpijns2nc1u2" path="res://guide_light.tscn" id="2_jxgdx"]
+
+[node name="BackAndForthMask" type="Node2D"]
+script = ExtResource("1_ns4lj")
+guidepath_step_count = 20
+guide_light_packed_scene = ExtResource("2_jxgdx")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

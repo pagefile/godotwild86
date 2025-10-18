@@ -2,12 +2,15 @@ extends Node2D
 class_name Mask
 
 @export var patrol_path : Path2D
+@export var patrol_color : Color
 # Increment value for creating the guide path. A value of 1
-# means a guide is placed at every baked point
+# means a guide is placed at every baked point along the
+# path
 @export var guidepath_step_count = 1
 # How many points behind the lead light up
 @export var illumination_trail = 2
 @export var guide_light_packed_scene : PackedScene
+@export var add_light_at_end : bool = false
 
 # Tracking lights to illuminate them based on
 # Where the player needs to be
@@ -42,8 +45,17 @@ func _process(delta: float) -> void:
 		return
 	
 	# Find the closest guide light and illuminate it
+	# First translate the progress ratio to an index
+	# for the lights arra
+	var ratio = path_follow.progress_ratio;
+	var index = round(ratio * _guide_lights.size())
+	# Turn off all lights. Just brute force.
+	# No elegant solution today
 	for light in _guide_lights:
-		pass
+		light.set_brightness(0)
+	# Turn on the closest light
+	if index < _guide_lights.size():
+		_guide_lights[index].set_brightness(1)
 	
 	_pathing(delta)
 	if character is NPC:
@@ -84,8 +96,17 @@ func _start() -> void:
 	if guidepath_step_count < 1:
 		guidepath_step_count = 1
 	while index < points.size():
-		var light = guide_light_packed_scene.instantiate()
+		var light = guide_light_packed_scene.instantiate() as GuideLight
 		get_tree().current_scene.add_child(light)
 		light.global_position = patrol_path.global_transform * points[index]
 		index += guidepath_step_count
+		_guide_lights.push_back(light)
+		light.set_brightness(0)
+		light.set_color(patrol_color)
+	if add_light_at_end:
+		var light = guide_light_packed_scene.instantiate() as GuideLight
+		get_tree().current_scene.add_child(light)
+		light.global_position = patrol_path.global_transform * points[points.size() - 1]
+		light.set_brightness(0)
+		light.set_color(patrol_color)
 		_guide_lights.push_back(light)

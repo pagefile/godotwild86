@@ -43,9 +43,9 @@ curve = SubResource("Curve2D_o6mel")
 position = Vector2(608, 288)
 
 [node name="BackAndForthMask" parent="NPC" node_paths=PackedStringArray("patrol_path") instance=ExtResource("5_e7anx")]
+loop_path = null
 patrol_path = NodePath("../../PatrolPath1")
-patrol_color = Color(1, 0.3724113, 0.3548712, 1)
-add_light_at_end = true
+illumination_trail = null
 
 [node name="PauseScreen" parent="." instance=ExtResource("1_w7r7j")]
 visible = false

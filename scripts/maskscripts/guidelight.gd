@@ -12,6 +12,12 @@ func set_brightness(brightness : float):
 	color.a = brightness
 	modulate = color
 
+func set_color(_color : Color):
+	var brightness = color.a
+	color = _color
+	color.a = brightness
+	modulate = color
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass

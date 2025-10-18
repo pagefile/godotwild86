@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1axpsl7yml05"]
+[gd_scene load_steps=5 format=3 uid="uid://c1axpsl7yml05"]
 
 [ext_resource type="Script" uid="uid://d0iescc773tx5" path="res://scripts/GUI/controls_menu.gd" id="1_dxhbj"]
+[ext_resource type="Theme" uid="uid://bc4lxh4qi7kdh" path="res://GUI/Themes/menu_theme.tres" id="1_frc7h"]
 [ext_resource type="Theme" uid="uid://byfa1qm1ggi4a" path="res://GUI/Themes/menu_title_theme.tres" id="1_ih4en"]
+[ext_resource type="PackedScene" uid="uid://baj1r8tap3hro" path="res://GUI/control_entry.tscn" id="3_u7t6g"]
 
 [node name="ControlsMenu" type="Control"]
 layout_mode = 3
@@ -10,17 +12,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_frc7h")
 script = ExtResource("1_dxhbj")
+_actions = Array[StringName]([&"Move Up", &"Move Down", &"Move Left", &"Move Right", &"Interact"])
+_control_entry_scene = ExtResource("3_u7t6g")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 339.0
-offset_top = 195.0
-offset_right = -331.0
-offset_bottom = -206.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -32,6 +33,10 @@ layout_mode = 2
 theme = ExtResource("1_ih4en")
 text = "Controls"
 horizontal_alignment = 1
+
+[node name="ControlEntries" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="CloseButton" type="Button" parent="PanelContainer/VBoxContainer"]
 unique_name_in_owner = true

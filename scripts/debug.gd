@@ -45,4 +45,4 @@ func _process(_delta):
 	%FPS.text = "FPS: " + str(Engine.get_frames_per_second())
 
 func Log(message : String):
-	print(message)
+	%Log.text += message + "\n"

@@ -1,5 +1,15 @@
-[gd_resource type="Theme" format=3 uid="uid://bc4lxh4qi7kdh"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bc4lxh4qi7kdh"]
+
+[ext_resource type="StyleBox" uid="uid://tuy845osh2rr" path="res://GUI/Themes/panel_style_box.tres" id="1_1xnnu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xnnu"]
+bg_color = Color(0.51718444, 0.5171845, 0.5171844, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icvb8"]
 
 [resource]
 Button/font_sizes/font_size = 24
+Button/styles/hover = SubResource("StyleBoxFlat_1xnnu")
 Label/font_sizes/font_size = 24
+Panel/styles/panel = SubResource("StyleBoxFlat_icvb8")
+PanelContainer/styles/panel = ExtResource("1_1xnnu")

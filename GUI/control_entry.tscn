@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://baj1r8tap3hro"]
+
+[node name="ControlEntry" type="HBoxContainer"]
+
+[node name="ControlLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PrimaryKey" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SecondaryKey" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2

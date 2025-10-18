@@ -8,6 +8,10 @@ var _preferences : Dictionary
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	read_preferences()
+	var joypad_indeces = Input.get_connected_joypads()
+	Debug.Log("Connected Joypad Names:")
+	for id in joypad_indeces:
+		Debug.Log("    Name: " + Input.get_joy_name(id) + "    " + "Raw Name: " + Input.get_joy_info(id)["raw_name"])
 
 func update_prefs(prefs : Dictionary):
 	for key in prefs.keys():

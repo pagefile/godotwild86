@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://defancochsmtm"]
+
+[ext_resource type="Script" uid="uid://tjtn08df6hlp" path="res://scripts/system/controller_profile.gd" id="1_ivdlp"]
+
+[resource]
+script = ExtResource("1_ivdlp")
+_button_names = {
+0: "X",
+1: "Circle",
+2: "Square",
+3: "Triangle",
+4: "Select",
+5: "PS Button",
+6: "Options Button",
+7: "L3",
+8: "R3",
+9: "L1",
+10: "R1",
+11: "D-Pad Up",
+12: "D-Pad Down",
+13: "D-Pad Left",
+14: "D-Pad Right",
+15: "Mic Button"
+}

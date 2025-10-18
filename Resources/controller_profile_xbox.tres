@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dxdnt2i5itvc"]
+
+[ext_resource type="Script" uid="uid://tjtn08df6hlp" path="res://scripts/system/controller_profile.gd" id="1_bfukt"]
+
+[resource]
+script = ExtResource("1_bfukt")
+_button_names = {
+0: "A",
+1: "B",
+2: "X",
+3: "Y",
+4: "Back Button",
+5: "Xbox Button",
+6: "Menu Button",
+7: "L3",
+8: "R3",
+9: "LB",
+10: "RB",
+11: "D-Pad Up",
+12: "D-Pad Down",
+13: "D-Pad Left",
+14: "D-Pad Right",
+15: "Share Button"
+}
